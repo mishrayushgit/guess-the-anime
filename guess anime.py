@@ -45,11 +45,11 @@ def play ():
     willing = True
     while(willing):
         if turn%2 == 0 :
-            turn = turn +1
-            print(player1," Your turn")
+            
+            print(player1,"Your turn")
             picked_movie = random.choice(movies)
-            index = movies.index(picked_movie)
-            # print("The Hint for the anime is : ",hints(index))
+            idex = movies.index(picked_movie)
+            print("The Hint for the anime is: ",hints[idex])
             qn = create_question(picked_movie)
             print(qn)
             modified_qn = qn
@@ -61,28 +61,29 @@ def play ():
                     print(modified_qn)
                     d = int(input("Press 1 to guess the anime name or 2 to unlock more character: "))
                     if d==1:
-                        ans = input("Enter Your Guess")
+                        ans = input("Enter Your Guess: ")
                         if ans == picked_movie:
                             pp1 = pp1+1
                             print("7 Croooree ! Your answer was right")
                             not_said = False
-                            print(player1," your score is : ",pp1)
+                            print(player1,"your score is : ",pp1)
                         else:
                             print("the answer is wrong, my advice is to check if its written in lower case")
                 else:
                     print("nuh uh, Wrong alphabet")
-            c = input("press 1 to input or 0 to quit")
+            c = int(input("press 1 to input or 0 to quit: "))
             if c == 0:
-                print(player1," score :",pp1)
-                print(player2," score :",pp2)
+                print(player1,"score :",pp1)
+                print(player2,"score :",pp2)
                 print("thanks for playing")
                 willing = False
+            else:
+                turn = turn +1
         else :
-            turn = turn +1
             print(player2," Your turn")
             picked_movie = random.choice(movies)
-            index = movies.index(movies)
-            # print("The Hint for the anime is : ",hints(index))
+            idex = movies.index(picked_movie)
+            print("The Hint for the anime is: ",hints[idex])
             qn = create_question(picked_movie)
             print(qn)
             modified_qn = qn
@@ -92,22 +93,24 @@ def play ():
                 if(is_present(letter,picked_movie)):
                     modified_qn = unlock(modified_qn,picked_movie,letter)
                     print(modified_qn)
-                    d = input("Press 1 to guess the anime name or 2 to unlock more character")
+                    d = int(input("Press 1 to guess the anime name or 2 to unlock more character: "))
                     if d==1:
-                        ans = input("Enter Your Guess")
+                        ans = input("Enter Your Guess: ")
                         if ans == picked_movie:
                             pp2 = pp2+1
                             print("7 Croooree ! Your answer was right")
                             not_said = False
-                            print(player2," your score is : ",pp2)
+                            print(player2,"your score is : ",pp2)
                         else:
                             print("the answer is wrong, my advice is to check if its written in lower case")
                 else:
                     print("nuh uh, Wrong alphabet")
-            c = input("press 1 to input or 0 to quit")
+            c = int(input("press 1 to input or 0 to quit: "))
             if c == 0:
-                print(player1," score :",pp1)
-                print(player2," score :",pp2)
+                print(player1,"score :",pp1)
+                print(player2,"score :",pp2)
                 print("thanks for playing")
                 willing = False
+            else:
+                turn = turn +1
 play()
